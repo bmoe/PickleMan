@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  creationTimestamp: 2018-07-27T18:16:25Z
+  generation: 1
+  labels:
+    app: pickleman
+    cluster: pickleman
+    detail: pickle
+    load-balancer-pickleman: "true"
+  name: pickleman
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pickleman
+      cluster: pickleman
+      detail: pickle
+  template:
+    metadata:
+      labels:
+        app: pickleman
+        cluster: pickleman
+        detail: pickle
+        load-balancer-pickleman: "true"
+    spec:
+      containers:
+      - image: gcr.io/iot-001-205114/pickle-rick:v7
+        imagePullPolicy: IfNotPresent
+        name: iot-001-205114-pickle-rick
+        ports:
+        - containerPort: 4444
+          name: http
+          protocol: TCP
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+      - name: gcr
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      terminationGracePeriodSeconds: 30
