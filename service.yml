@@ -11,6 +11,5 @@ spec:
     protocol: TCP
     targetPort: 4444
   selector:
-    app: pickleman
     name: pickle
   sessionAffinity: None
