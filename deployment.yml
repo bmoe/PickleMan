@@ -25,7 +25,7 @@ spec:
       containers:
         - env:
             - name: CONFIG_VAL
-            - value: pickel-man
+              value: pickel-man
           image: gcr.io/iot-001-205114/pickle-rick
           name: iot-001-205114-pickle-rick
           ports:
