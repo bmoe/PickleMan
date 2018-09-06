@@ -3,9 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: pickleman
-    cluster: pickleman
-    detail: pickle
-    load-balancer-pickleman: "true"
+    name: pickle
   name: pickleman-deployment
   namespace: default
 spec:
@@ -13,16 +11,12 @@ spec:
   selector:
     matchLabels:
       app: pickleman
-      cluster: pickleman
-      detail: pickle
-      load-balancer-pickleman: "true"
+      name: pickle
   template:
     metadata:
       labels:
         app: pickleman
-        cluster: pickleman
-        detail: pickle
-        load-balancer-pickleman: "true"
+        name: pickle
     spec:
       containers:
         - env:
